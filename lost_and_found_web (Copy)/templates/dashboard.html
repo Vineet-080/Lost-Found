@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+    <article>
+        <header><h2>Dashboard</h2></header>
+        <p>What would you like to do?</p>
+        <div class="grid">
+             <a href="{{ url_for('report_item', category='Lost') }}" role="button" >Report a Lost Item</a>
+             <a href="{{ url_for('report_item', category='Found') }}" role="button" >Report a Found Item</a>
+        </div>
+         <div class="grid">
+             <a href="{{ url_for('view_items', category='Lost') }}" role="button" class="secondary">View Lost Items</a>
+             <a href="{{ url_for('view_items', category='Found') }}" role="button" class="secondary">View Found Items</a>
+         </div>
+    </article>
+{% endblock %}

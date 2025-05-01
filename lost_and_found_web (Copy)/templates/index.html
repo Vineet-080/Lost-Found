@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}Welcome - Lost and Found{% endblock %}
+
+{% block content %}
+    <article>
+        <header>
+             <hgroup>
+                <h1>Welcome to the Lost and Found System</h1>
+                <h2>Please log in or register to continue.</h2>
+            </hgroup>
+        </header>
+        <div class="grid">
+            <a href="{{ url_for('login') }}" role="button" class="contrast">Login</a>
+            <a href="{{ url_for('register') }}" role="button" class="secondary">Register</a>
+        </div>
+    </article>
+{% endblock %}

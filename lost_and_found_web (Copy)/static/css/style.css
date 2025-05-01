@@ -1,0 +1,90 @@
+/* Keep this file for custom styles that Pico doesn't cover or you want to override */
+
+/* Example: Style flash messages more distinctly if needed */
+.flash-success {
+    /* Pico doesn't have strong success colors by default, add if desired */
+     border-left: 5px solid var(--pico-color-green-500);
+}
+.flash-danger {
+     /* Pico uses contrast, which might be okay, or override */
+     border-left: 5px solid var(--pico-color-red-600);
+     background-color: var(--pico-form-element-invalid-active-border-color); /* Use Pico variable */
+     color: var(--pico-color-white);
+     padding: var(--pico-block-spacing-vertical) var(--pico-block-spacing-horizontal);
+     margin-bottom: var(--pico-block-spacing-vertical);
+     border-radius: var(--pico-border-radius);
+}
+
+
+/* Center forms slightly more */
+article.grid > div:first-child {
+    align-items: normal;
+}
+
+/* Item Card styling */
+.item-grid {
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Responsive grid */
+  gap: var(--pico-spacing);
+}
+
+.item-card {
+    padding: 0; /* Remove default article padding if image is edge-to-edge */
+    overflow: hidden; /* Keep image corners rounded if image is child */
+    display: flex;
+    flex-direction: column;
+}
+
+.item-card .item-image {
+    width: 100%;
+    height: 180px; /* Fixed height for consistency */
+    object-fit: cover; /* Cover the area, might crop */
+    display: block;
+    background-color: var(--pico-card-background-color); /* Placeholder bg */
+}
+
+.item-card .image-placeholder {
+     width: 100%;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--pico-muted-background-color);
+    color: var(--pico-muted-color);
+    font-style: italic;
+}
+
+
+.item-card .item-details {
+    padding: var(--pico-card-body-padding);
+    flex-grow: 1; /* Take remaining space */
+}
+
+.item-card p {
+    margin-bottom: 0.5rem;
+}
+.item-card p:last-child {
+    margin-bottom: 0;
+}
+
+/* Footer form buttons alignment */
+.form-footer {
+    display: flex;
+    justify-content: space-between; /* Pushes buttons apart */
+    align-items: center;
+    margin-top: var(--pico-block-spacing-vertical);
+}
+
+
+/* Theme toggle button basic style */
+#theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em; /* Adjust size */
+    padding: 0.5rem;
+    line-height: 1;
+    color: var(--pico-nav-link-color); /* Use nav link color */
+}
+#theme-toggle:hover {
+     color: var(--pico-nav-link-hover-color);
+}

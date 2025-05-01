@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}View {{ category }} Items{% endblock %}
+
+{% block content %}
+    <section>
+        <hgroup>
+            <h1>{{ category }} Items</h1>
+            {% if items %}
+                <h2>Items reported as {{ category.lower() }}.</h2>
+            {% else %}
+                 <h2>No {{ category.lower() }} items have been reported yet.</h2>
+            {% endif %}
+        </hgroup>
+
+        {% if items %}
+            <div class="grid item-grid"> {# Use grid for layout #}
+                {% for item in items %}
+                    <article class="item-card">
+                        {% if item['image_filename'] %}
+                            <img class="item-image" src="{{ url_for('uploaded_file', filename=item['image_filename']) }}" alt="Item Image">
+                        {% else %}
+                             {# Placeholder or leave empty #}
+                            <div class="image-placeholder">No Image</div>
+                        {% endif %}
+                        <div class="item-details">
+                             <p><strong>Description:</strong> {{ item['description'] }}</p>
+                             <p><small><strong>Location:</strong> {{ item['location'] if item['location'] else 'N/A' }}</small></p>
+                             <p><small><strong>Time:</strong> {{ item['time'] if item['time'] else 'N/A' }}</small></p>
+                             <p><small><strong>Contact:</strong> {{ item['contact'] }}</small></p>
+                        </div>
+                        {# Add claim button or more actions later if needed #}
+                    </article>
+                {% endfor %}
+            </div>
+        {% endif %}
+
+        <footer>
+             <a href="{{ url_for('dashboard') }}" role="button" class="contrast outline">Back to Dashboard</a>
+        </footer>
+    </section>
+
+{% endblock %}

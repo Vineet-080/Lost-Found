@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}Report {{ category }} Item{% endblock %}
+
+{% block content %}
+    <article>
+        <header><h2>Report {{ category }} Item</h2></header>
+        <form method="post" enctype="multipart/form-data">
+            <label for="description">
+                Description *
+                <textarea id="description" name="description" rows="4" required placeholder="Detailed description of the item"></textarea>
+            </label>
+
+             <div class="grid">
+                 <label for="location">
+                    Location Found/Lost (Optional)
+                    <input type="text" id="location" name="location" placeholder="e.g., Library 2nd Floor">
+                </label>
+                 <label for="time">
+                    Time Found/Lost (Optional)
+                    <input type="text" id="time" name="time" placeholder="e.g., Approx 3 PM on Monday">
+                </label>
+            </div>
+
+            <label for="contact">
+                Contact Information *
+                <input type="text" id="contact" name="contact" required placeholder="Your name, email, or phone">
+                <small>How someone can contact you if they find/have your item.</small>
+            </label>
+
+            <label for="image">
+                Upload Image (Optional)
+                <input type="file" id="image" name="image" accept="image/png, image/jpeg, image/gif">
+            </label>
+
+            <footer class="form-footer">
+                <a href="{{ url_for('dashboard') }}" role="button" class="secondary outline">Cancel</a>
+                <button type="submit" class="contrast">Submit Report</button>
+            </footer>
+        </form>
+    </article>
+{% endblock %}

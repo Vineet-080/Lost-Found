@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}Login{% endblock %}
+
+{% block content %}
+    <article class="grid">
+         <div> {# Column for centering #}
+            <hgroup>
+                <h1>Login</h1>
+                <h2>Access your account</h2>
+            </hgroup>
+            <form method="post">
+                <label for="username">
+                    Username
+                    <input type="text" id="username" name="username" placeholder="Username" required>
+                </label>
+
+                <label for="password">
+                    Password
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </label>
+
+                {# <label for="remember">
+                    <input type="checkbox" id="remember" name="remember">
+                    Remember me
+                </label> #}
+
+                <button type="submit" class="contrast">Login</button>
+            </form>
+             <p><small>Don't have an account? <a href="{{ url_for('register') }}">Register here</a></small></p>
+         </div>
+         <div></div> {# Empty column for centering effect if needed #}
+    </article>
+{% endblock %}

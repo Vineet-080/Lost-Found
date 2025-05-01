@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+     <article class="grid">
+         <div> {# Column for centering #}
+            <hgroup>
+                <h1>Register</h1>
+                <h2>Create a new account</h2>
+            </hgroup>
+            <form method="post">
+                 <label for="username">
+                    Username
+                    <input type="text" id="username" name="username" placeholder="Choose a username" required>
+                </label>
+
+                <label for="password">
+                    Password
+                    <input type="password" id="password" name="password" placeholder="Create a password" required>
+                </label>
+                {# Add confirm password field for real application #}
+
+                <button type="submit" class="contrast">Register</button>
+            </form>
+             <p><small>Already have an account? <a href="{{ url_for('login') }}">Login here</a></small></p>
+         </div>
+          <div></div> {# Empty column for centering effect if needed #}
+    </article>
+{% endblock %}
